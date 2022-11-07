@@ -1,0 +1,39 @@
+extends admin
+
+block admin
+  h2 Stats
+    table
+      tr
+        td id
+        td uuid
+        td stats1
+        td stats2
+        td stats3
+        td stats4
+        td stats5
+        td stats6
+        td successes
+        td fails
+      each stat in stats
+        tr
+          td
+            =stat.id
+          td
+            =stat.uuid
+          td
+            =stat.stats1
+          td
+            =stat.stats2
+          td
+            =stat.stats3
+          td
+            =stat.stats4
+          td
+            =stat.stats5
+          td
+            =stat.stats6
+          td
+            =stat.successes
+          td
+            =stat.fails
+

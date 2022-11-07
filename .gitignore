@@ -1,0 +1,5 @@
+node_modules
+yarn-error.log
+public/images/tasks
+export.sql
+config/default.json

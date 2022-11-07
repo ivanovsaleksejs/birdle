@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token',content=_csrf)
+    title(data-text = 'title')= title
+    script(src='/js/ajax.js')
+    script(src='/js/ui.js')
+    script(src='/js/public/game.js')
+    script(src='/js/public/ws.js')
+    script(src='/js/main.js')
+    script(src='/js/public/index.js')
+    link(rel = 'stylesheet' type = 'text/css' href = '/css/public.css')
+    link(rel = 'stylesheet' type = 'text/css' href = '/css/mobile.css')
+  body
+    block nav
+    block public

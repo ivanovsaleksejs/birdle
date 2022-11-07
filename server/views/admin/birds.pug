@@ -1,0 +1,21 @@
+extends admin
+
+block admin
+
+  h2 Birds
+  ul(class='birds')
+    each bird in birds
+      li(class='bird')
+        a(href = routes.admin.showbird.url.replace(':birdId*?', bird.id))= bird.name_lv
+
+  h2 Add new
+  form(action = routes.admin.savebird.url.replace(':birdId*?', ''), method = routes.admin.savebird.method)
+    input(name = 'name_en', type = 'text', value = '')
+    input(name = 'name_lv', type = 'text', value = '')
+    input(name = 'name_lat', type = 'text', value = '')
+    input(name = 'name_ru', type = 'text', value = '')
+    select(name='parent')
+      option
+      each genus in geni
+        option(value=genus.id)= genus.name_en
+    input(type = 'submit', value = 'Change')

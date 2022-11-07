@@ -1,0 +1,20 @@
+extends admin
+
+block admin
+
+  h2= task.name_lv 
+  
+  h2 Edit
+  form(action = routes.admin.savetask.url.replace(':taskId*?', ''), method = routes.admin.savetask.method)
+    input(type = 'hidden', name = 'task_id', value = task.id)
+    select(name='bird_id')
+      option
+      each bird in birds
+        option(value=bird.id, selected= bird.id == task.bird_id)= bird.name_lv
+    input(type = 'submit', value = 'Change')
+    div(class = 'taskimages')
+      each i in [1,2,3,4,5,6]
+        div(class = 'imageupload')
+          img(src = task['image' + i])
+          input(type = 'hidden', name = 'image' + i, value = task['image' + i])
+          input(name = 'imagefile' + i, type = 'file', class = 'imagefile')

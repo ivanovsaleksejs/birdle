@@ -1,0 +1,28 @@
+extends admin
+
+block admin
+  h2 Add new
+  form(action = routes.admin.saveclass.url.replace(':classId*?', ''), method = routes.admin.saveclass.method)
+    input(name = 'name_en', type = 'text', value = '')
+    input(name = 'name_lv', type = 'text', value = '')
+    input(name = 'name_ru', type = 'text', value = '')
+    select(name='parent')
+      option
+      each parent in allParents
+        option(value=parent.id)= parent.name
+    input(type = 'submit', value = 'Change')
+
+  h2 Classes
+  ul(class='orders')
+    each order in orders
+      li(class='order')
+        a(href = routes.admin.showclass.url.replace(':classId*?', order.id))= order.name_lv
+        ul(class='families')
+          each family in order.families
+            li
+              a(href = routes.admin.showclass.url.replace(':classId*?', family.id))= family.name_lv
+              ul(class='geni')
+                each genus in family.geni
+                  li
+                    a(href = routes.admin.showclass.url.replace(':classId*?', genus.id))= genus.name_lv
+

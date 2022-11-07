@@ -1,0 +1,14 @@
+extends admin
+
+block admin
+  h2 Edit
+  form(action = routes.admin.savebird.url.replace(':birdId*?', ''), method = routes.admin.savebird.method)
+    input(name = 'name_en', type = 'text', value = birdData.name_en)
+    input(name = 'name_lv', type = 'text', value = birdData.name_lv)
+    input(name = 'name_lat', type = 'text', value = birdData.name_lat)
+    input(name = 'name_ru', type = 'text', value = birdData.name_ru)
+    select(name = 'select_genus')
+      each bc in birdClasses
+        option(value=bc.id, selected=birdData.genus == bc.id)= bc.name_lv
+    input(name = 'birdId', type = 'hidden', value = birdData.id)
+    input(type = 'submit', value = 'Change')

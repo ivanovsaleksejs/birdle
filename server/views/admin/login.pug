@@ -1,0 +1,9 @@
+extends admin
+
+block admin
+  h2 Login
+
+  form(action = routes.admin.adminprocesslogin.url, method = routes.admin.adminprocesslogin.method)
+    input(type = 'text', name = 'login')
+    input(type = 'password', name = 'password')
+    input(type = 'Submit')

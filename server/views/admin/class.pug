@@ -1,0 +1,14 @@
+extends admin
+
+block admin
+  h2 Edit
+  form(action = routes.admin.saveclass.url.replace(':classId*?', ''), method = routes.admin.saveclass.method)
+    input(name = 'name_en', type = 'text', value = classData.name_en)
+    input(name = 'name_lv', type = 'text', value = classData.name_lv)
+    input(name = 'name_ru', type = 'text', value = classData.name_ru)
+    input(name = 'classId', type = 'hidden', value = classData.id)
+    select(name='parent')
+      option
+      each parent in allParents
+        option(value=parent.id, selected=parent.id == classData.parent)= parent.name_lv
+    input(type = 'submit', value = 'Change')

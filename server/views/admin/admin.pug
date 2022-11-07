@@ -1,0 +1,20 @@
+extends layout
+
+mixin li(href, name)
+  li
+    a(href = href)= name
+
+mixin nav
+  ul
+    +li(routes.admin.admin.url, 'Home')
+    +li(routes.admin.classes.url, 'Classes')
+    +li(routes.admin.birds.url, 'Birds')
+    +li(routes.admin.tasks.url, 'Tasks')
+    +li(routes.admin.calendar.url, 'Calendar')
+    +li(routes.admin.viewstats.url, 'Stats')
+    +li(routes.admin.adminlogout.url, 'Logout')
+
+block nav
+  +nav
+
+block admin

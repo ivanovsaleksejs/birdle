@@ -1,0 +1,20 @@
+extends admin
+
+block admin
+  h2 Calendar
+    table
+      tr
+        th Date
+        th Bird number
+        th Bird task
+      each dateElement in dates
+        tr
+          td
+            =dateElement.date
+          td
+            input(type = 'text', id = 'bird_number_'+dateElement.dailyTaskId, value = dateElement.bird_number)
+          td
+            select(class='calendar_task', id='calendar_task_'+dateElement.dailyTaskId)
+              option
+              each btask in taskWithBirdName
+                option(value=btask.task_id, selected=btask.task_id == dateElement.taskId)= btask.task_id + " - " + btask.name_lv

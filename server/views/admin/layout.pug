@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(name='csrf-token',content=_csrf)
+    title= title
+    script(src='/js/ajax.js')
+    script(src='/js/admin/admin.js')
+    script(src='/js/main.js')
+    script(src='/js/admin/index.js')
+    link(rel = 'stylesheet' type = 'text/css' href = '/css/admin.css')
+  body
+    if !unauthorized
+      block nav
+    block admin
