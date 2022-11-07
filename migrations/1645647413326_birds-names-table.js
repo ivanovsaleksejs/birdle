@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 
-exports.shorthands = undefined;
+exports.shorthands = undefined
 
 exports.up = pgm => {
   pgm.createTable('birds_class', {
@@ -55,9 +55,9 @@ exports.up = pgm => {
   pgm.createIndex('birds_names', 'name_lv')
   pgm.createIndex('birds_names', 'name_lat')
   pgm.createIndex('birds_names', 'name_ru')
-};
+}
 
 exports.down = pgm => {
   pgm.dropTable('birds_names')
   pgm.dropTable('birds_class')
-};
+}
