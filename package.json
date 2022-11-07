@@ -1,9 +1,9 @@
 {
-  "name": "birdle",
-  "version": "0.0.1",
+  "name": "birdle.lv",
+  "version": "1.0",
   "description": "A birdle game",
   "main": "index.js",
-  "repository": "birdle.local",
+  "repository": "github:ivanovsaleksejs/birdle",
   "author": "Aleksejs Ivanovs",
   "license": "MIT",
   "dependencies": {
