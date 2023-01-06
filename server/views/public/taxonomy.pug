@@ -13,7 +13,7 @@ block public
     div(class = 'taxonomy_column')
       each order in orders
         each family in order.families
-          div
+          div(data-parent=order.id)
             input(type='checkbox', data-id=family.id, id='family_'+family.id)
             label(for='family_'+family.id)
               =family.name_lv
@@ -21,7 +21,7 @@ block public
       each order in orders
         each family in order.families
           each genus in family.geni
-            div
+            div(data-parent=family.id)
               input(type='checkbox', data-id=genus.id, id='genus_'+genus.id)
               label(for='genus_'+genus.id)
                 =genus.name_lv
@@ -30,6 +30,6 @@ block public
         each family in order.families
           each genus in family.geni
             each spec in genus.species
-              div(id = 'species_'+spec.id)
+              div(data-parent=genus.id, id='species_'+spec.id)
                 =spec.name_lv
   div

@@ -63,6 +63,7 @@ const getTaxonomy = routes => (req, res) => {
     client.release()
 
     res.render('public/taxonomy', {
+      page : "taxonomy",
       orders : orders,
       allParents : allParents,
       allOrders : allOrders,
