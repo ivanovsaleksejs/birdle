@@ -3,6 +3,7 @@ const { showBirds, showBird, saveBird, changeGenus } = require('./admin/birds.js
 const { showTasks, showTask, saveTask, uploadImage, viewStats } = require('./admin/tasks.js')
 const { showLogin, processLogin, logout } = require('./admin/admin.js')
 const { showTodaysTask, getBirdNames, guessBird, changeLanguage, getStats } = require('./public/tasks.js')
+const { getTaxonomy } = require('./public/taxonomy.js')
 const { showCalendar, changeCalendar } = require('./admin/calendar.js')
 
 const routes = {
@@ -114,6 +115,11 @@ const routes = {
     getbirdnames : {
       url : "/getbirdnames",
       action : getBirdNames,
+      method : 'get'
+    },
+    taxonomy : {
+      url : "/taxonomy",
+      action : getTaxonomy,
       method : 'get'
     }
   },

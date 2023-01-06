@@ -1,0 +1,11 @@
+.taxonomy_column {
+  float: left;
+  width: 25%;
+}
+
+.taxonomy:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
