@@ -3,7 +3,7 @@ const state = {}
 const events = {
   'change' : [
     {
-      target : '.taxonomy_column input[type=checkbox]',
+      target : '.taxonomy_row input[type=checkbox]',
       action : filterTaxonomy
     }
   ]

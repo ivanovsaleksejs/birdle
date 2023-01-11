@@ -4,32 +4,28 @@ block public
 
   h2 Taxonomy
   div(class = 'taxonomy')
-    div(class = 'taxonomy_column')
-      each order in orders
+    each order in orders
+      div(class = 'taxonomy_row order')
         div
           input(type='checkbox', data-id=order.id, id='order_'+order.id)
           label(for='order_'+order.id)
             =order.name_lv
-    div(class = 'taxonomy_column')
-      each order in orders
-        each family in order.families
-          div(data-parent=order.id)
-            input(type='checkbox', data-id=family.id, id='family_'+family.id)
-            label(for='family_'+family.id)
-              =family.name_lv
-    div(class = 'taxonomy_column')
-      each order in orders
-        each family in order.families
-          each genus in family.geni
-            div(data-parent=family.id)
-              input(type='checkbox', data-id=genus.id, id='genus_'+genus.id)
-              label(for='genus_'+genus.id)
-                =genus.name_lv
-    div(class = 'taxonomy_column')
-      each order in orders
-        each family in order.families
-          each genus in family.geni
-            each spec in genus.species
-              div(data-parent=genus.id, id='species_'+spec.id)
-                =spec.name_lv
+        div(data-parent=order.id)
+          each family in order.families
+            div(class = 'taxonomy_row family')
+              div
+                input(type='checkbox', data-id=family.id, id='family_'+family.id)
+                label(for='family_'+family.id)
+                  =family.name_lv
+              div(data-parent=family.id)
+                each genus in family.geni
+                  div(class = 'taxonomy_row genus')
+                    div
+                      input(type='checkbox', data-id=genus.id, id='genus_'+genus.id)
+                      label(for='genus_'+genus.id)
+                        =genus.name_lv
+                    div(data-parent=genus.id)
+                      each spec in genus.species
+                        div(id='species_'+spec.id)
+                          =spec.name_lv
   div

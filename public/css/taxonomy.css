@@ -1,11 +1,29 @@
-.taxonomy_column {
-  float: left;
-  width: 25%;
+.taxonomy {
+  min-width: 50em;
 }
-
-.taxonomy:after {
-  content: "";
-  display: table;
-  clear: both;
+.taxonomy_row {
+  display: flex;
+  padding: 0.2em;
 }
-
+.taxonomy_row.order > div:first-child {
+  width: 25%;
+}
+.taxonomy_row.order > div:nth-child(2) {
+  width: 75%;
+}
+.taxonomy_row.family > div:first-child {
+  width: 33%;
+}
+.taxonomy_row.family > div:nth-child(2) {
+  width: 67%;
+}
+.taxonomy_row.genus > div:first-child {
+  width: 50%;
+}
+.taxonomy_row.genus > div:nth-child(2) {
+  width: 50%;
+}
+.taxonomy_row:has(> div > input:checked) {
+  background: rgba(3,127,68,1);
+  color: #E5E5E5;
+}
