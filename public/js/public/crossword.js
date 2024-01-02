@@ -167,7 +167,7 @@ const showTweetPopup = (success, res, state) =>
     ).join('')
     boxes += "\n"
   }
-  tweet += boxes + "\n" + document.location.href + " #birdle"
+  tweet += "\n" + boxes + "\n" + document.location.href + " #birdle"
   tweet = encodeURIComponent(tweet)
 
   let tweetlink = `https://twitter.com/intent/tweet/?text=${tweet}`
