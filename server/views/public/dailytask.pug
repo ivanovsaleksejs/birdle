@@ -9,16 +9,18 @@ mixin li(num)
 
 block public
 
-  a(href = '/taxonomy') Taxonomy
   div(class = 'content')
     div(class = 'wrapper')
     div(class = 'header')
       div(class = 'buttons left')
         div(class = 'help')
         div(class = 'terms')
+        div(class = 'tax')
       div(class = 'title')
       div(class = 'buttons')
         div(class = 'stats')
+        div(class = 'cw')
+          a(href='/crossword')
         div(class = 'languageSelect')
           div(class = 'flagWrapper')
             div(class = 'active lang ' + lang)

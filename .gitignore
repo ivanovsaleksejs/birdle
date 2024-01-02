@@ -3,3 +3,6 @@ yarn-error.log
 public/images/tasks
 export.sql
 config/default.json
+.nvimlog
+birdle.dump
+birdle.sql

@@ -1,6 +1,11 @@
 :root {
   --dark-green: rgba(3,127,68,1);
+  --light-green: rgba(146,238,194,0.6);
   --dark-green-transparent: rgba(3,127,68,0.5);
+  --orange: rgba(248, 180, 65, 1);
+  --light-orange: rgba(248, 180, 65, 0.05);
+  --red: rgba(238, 49, 49, 1);
+  --light-red: rgba(230, 202, 202, 0.6);
   --grey-incorrect: #ABABAB;
   --light-grey: #DEDEDE;
   --dark-grey: #777777;
@@ -53,7 +58,7 @@ body {
 }
 .buttons {
   display: flex;
-  width: 7em;
+  width: 11em;
   justify-content: space-between;
   position: absolute;
   right: 0;
@@ -85,7 +90,7 @@ body {
   padding-right: 1em;
   font-size: 1.2em;
 }
-.languageSelect, .help, .stats, .terms {
+.languageSelect, .help, .stats, .terms, .tax, .cw {
   border: 1px solid var(--light-grey);
   border-radius: 0.4em;
   box-shadow: 0 0.1em 4px var(--dark-grey);
@@ -165,13 +170,26 @@ body {
   font-weight: 600;
 }
 .terms {
-  background: url('/images/privacy.png');
-}
-.terms {
   background: url(/images/privacy.png);
   background-size: 2em;
   background-repeat: no-repeat;
   background-position: center;
+}
+.tax {
+  background: url(/images/tax.png);
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cw {
+  background: url(/images/crossword.png);
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cw a {
+  width: 100%;
+  height: 100%;
 }
 .helpContent {
   display: none;

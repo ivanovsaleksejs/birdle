@@ -2,7 +2,7 @@ const $ = (s, c, unwrap = true) => (elems = (c ?? document).querySelectorAll(s))
 
 const newEl= (e, params) => Object.assign(document.createElement(e), params)
 
-const addEventsToNodes = n =>
+const addEventsToNodes = events => n =>
 {
   for (let eventName in events) {
     Array.from(events[eventName]).map(handler => {
@@ -25,7 +25,7 @@ const trackElements = (state, events) => (list, observer) =>
 {
   list.map(m => {
     if (m.type == 'childList') {
-      Array.from(m.addedNodes).map(addEventsToNodes)
+      Array.from(m.addedNodes).map(addEventsToNodes(events))
     }
   })
 }

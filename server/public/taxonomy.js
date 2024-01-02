@@ -1,4 +1,5 @@
 const pool = require('../pool.js')
+const { text, texts } = require('../texts.js')
 
 const getTaxonomy = routes => (req, res) => {
   (async _ => {
@@ -9,35 +10,22 @@ const getTaxonomy = routes => (req, res) => {
     const allSpecies = []
     const allParents = []
 
-    const orders = (await client.query("SELECT * FROM birds_class c WHERE c.parent IS NULL")).rows
+    let lang = req.session.lang
+
+    const orders = (await client.query(`SELECT id, name_${lang} as name FROM birds_class c WHERE c.parent IS NULL`)).rows
+
     for (let order of orders) {
-      allOrders.push({
-        id : order.id,
-        name : order.name_lv
-      })
-      allParents.push({
-        id : order.id,
-        name : order.name_lv
-      })
       order.families = (await client.query(
         {
-          text : "SELECT * FROM birds_class WHERE parent = $1",
+          text : `SELECT id, name_${lang} as name FROM birds_class WHERE parent = $1`,
           values : [order.id]
         }
       )).rows
 
       for (let family of order.families) {
-        allFamilies.push({
-          id : family.id,
-          name : family.name_lv
-        })
-        allParents.push({
-          id : family.id,
-          name : family.name_lv
-        })
         family.geni = (await client.query(
           {
-            text : "SELECT * FROM birds_class WHERE parent = $1",
+            text : `SELECT id, name_${lang} as name FROM birds_class WHERE parent = $1`,
             values : [family.id]
           }
         )).rows
@@ -45,33 +33,24 @@ const getTaxonomy = routes => (req, res) => {
         for (let genus of family.geni) {
           genus.species = (await client.query(
             {
-              text : "SELECT * FROM birds_names WHERE genus = $1",
+              text : `SELECT id, name_${lang} as name FROM birds_names WHERE genus = $1`,
               values : [genus.id]
             }
           )).rows
-          for (let sp of genus.species) {
-            allSpecies.push({
-              id : sp.id,
-              genus_id : genus.id,
-              name : sp.name_lv
-            })
-          }
         }
       }
     }
 
     client.release()
-
     res.render('public/taxonomy', {
       page : "taxonomy",
       orders : orders,
-      allParents : allParents,
-      allOrders : allOrders,
-      allFamilies : allFamilies,
-      allSpecies : allSpecies
+      lang : lang,
+      text : text,
     })
+
+    //res.send(JSON.stringify(orders))
   })()
 }
 
 module.exports = { getTaxonomy }
-

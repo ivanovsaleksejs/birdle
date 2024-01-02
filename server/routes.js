@@ -4,6 +4,7 @@ const { showTasks, showTask, saveTask, uploadImage, viewStats } = require('./adm
 const { showLogin, processLogin, logout } = require('./admin/admin.js')
 const { showTodaysTask, getBirdNames, guessBird, changeLanguage, getStats } = require('./public/tasks.js')
 const { getTaxonomy } = require('./public/taxonomy.js')
+const { getCrossword, displayCrosswordPage, checkCrossword } = require('./public/crossword.js')
 const { showCalendar, changeCalendar } = require('./admin/calendar.js')
 
 const routes = {
@@ -121,6 +122,21 @@ const routes = {
       url : "/taxonomy",
       action : getTaxonomy,
       method : 'get'
+    },
+    crossword : {
+      url : "/crossword",
+      action : displayCrosswordPage,
+      method : 'get'
+    },
+    getcrossword : {
+      url : "/getcrossword",
+      action : getCrossword,
+      method : 'get'
+    },
+    checkcrossword : {
+      url : "/checkcrossword",
+      action : checkCrossword,
+      method : 'post'
     }
   },
   ws : {

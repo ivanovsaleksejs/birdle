@@ -1,5 +1,12 @@
+.taxPopup h2 {
+  text-align: center;
+}
 .taxonomy {
-  min-width: 50em;
+  min-width: 50%;
+  padding: 0.5em;
+  margin: 1.5em;
+  max-height: 60vw;
+  overflow: scroll;
 }
 .taxonomy_row {
   display: flex;
@@ -26,4 +33,17 @@
 .taxonomy_row:has(> div > input:checked) {
   background: rgba(3,127,68,1);
   color: #E5E5E5;
+}
+@media screen and (max-width: 1279px) {
+  .taxonomy_row {
+    flex-direction: column;
+  }
+  .taxonomy_row.order > div:first-child,
+  .taxonomy_row.order > div:nth-child(2),
+  .taxonomy_row.family > div:first-child,
+  .taxonomy_row.family > div:nth-child(2),
+  .taxonomy_row.genus > div:first-child,
+  .taxonomy_row.genus > div:nth-child(2) {
+    width: 100%;
+  }
 }

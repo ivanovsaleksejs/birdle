@@ -1,0 +1,40 @@
+@media screen and (max-width: 1279px) {
+  game {
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: space-between;
+  }
+  crosswordfield {
+    order: 1;
+    width: 100%;
+  }
+  hints1, hints2 {
+    width: 45%;
+    margin-top: 5%;
+  }
+  hints1 {
+    order: 2;
+  }
+  .hint img {
+    width: 85%;
+  }
+  hints1 .hint {
+    align-items: flex-start;
+  }
+  hints2 .hint {
+    justify-content: flex-start;
+  }
+  .hint::before {
+    left: auto !important;
+    right: 10%;
+  }
+  .hint result {
+    margin-left: 10%;
+  }
+  cell input {
+    font-size: 0.75em;
+  }
+  wordlabel {
+    font-size: 60%;
+  }
+}

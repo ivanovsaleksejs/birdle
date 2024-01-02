@@ -40,6 +40,10 @@ const events = {
       action : showTerms
     },
     {
+      target : '.tax',
+      action : showTaxonomy
+    },
+    {
       target : '.stats',
       action : showStats
     },
@@ -88,6 +92,13 @@ const events = {
     {
       target : '.game',
       action : renewStats
+    }
+  ],
+  'change' : [
+    {
+      target : '.taxonomy_row input[type=checkbox]',
+      action : filterTaxonomy,
+      checkChilds : true
     }
   ]
 }

@@ -17,7 +17,7 @@
   .header {
     width: var(--width);
   }
-  .popup, .popup * {
+  .popup, .popup > * {
     max-width: var(--width) !important;
     min-width: 0% !important;
   }

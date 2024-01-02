@@ -1,0 +1,252 @@
+game {
+  display: flex;
+  margin-top: 1vw;
+  flex-wrap: wrap;
+  width: 100%;
+}
+crosswordfield, hints1, hints2 {
+  height: auto;
+  min-height: 30vw;
+  position: relative;
+}
+crosswordfield {
+  width: 60%;
+  order: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.2vw;
+  background: var(--dark-green);
+  padding: 0.1em 0;
+}
+hints1 {
+  width: 20%;
+  order: 1;
+}
+hints2 {
+  width: 20%;
+  order: 3;
+}
+.hint {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.hint::before {
+  position: absolute;
+  color: var(--dark-green);
+  font-size: 1.5em;
+  bottom: 5%;
+  right: 5%;
+}
+hints2 .hint::before {
+  left: 60%;
+}
+hints1 .hint {
+  align-items: flex-end;
+}
+.hint result {
+  display: flex;
+  width: 60%;
+  height: 1.5em;
+  justify-content: flex-start;
+  margin: 0 4% 4% 4%;
+}
+.hint result div {
+  width: 0.9em;
+  height: 0.9em;
+  border: 1px solid var(--light-grey);
+  border-radius: 0.2em;
+  margin: 0 0.1em;
+}
+.hint result div.correct {
+  background: var(--dark-green);
+  border-color: var(--dark-green);
+}
+.hint result div.mistake {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.hint result div.wrong {
+  background: var(--red);
+  border-color: var(--red);
+}
+crosswordrow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+crosswordrow cell {
+  display: flex;
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  margin-left: -1px;
+  margin-top: -1px;
+  background: transparent;
+  border: 1px solid var(--dark-green);
+}
+crosswordrow cell.char {
+  background: #FFFFFF;
+  position: relative;
+}
+crosswordrow cell.char::before, crosswordrow cell.char::after {
+  font-size: 0.7em;
+  color: var(--dark-green);
+  position: absolute;
+}
+crosswordrow cell.char::before {
+  margin-left: 0.2vw;
+  margin-top: 0.1vw;
+  left: 0;
+  top: 0;
+}
+cell input {
+  width: 100%;
+  border: 0 none;
+  outline: none;
+  color: var(--dark-green);
+  font-size: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  caret-color: transparent;
+  text-transform: lowercase;
+}
+cell input:disabled {
+  cursor: not-allowed;
+}
+cell input:focus {
+  background: var(--light-orange);
+  box-shadow: inset 0 0 0.2em 0.15em var(--orange);
+}
+cell.mistake input:focus {
+  background: var(--light-green);
+  box-shadow: inset 0 0 0.2em 0.15em var(--dark-green);
+}
+cell.char.mistake input {
+  background-color: var(--orange);
+}
+cell.char.correct input {
+  background-color: var(--light-green);
+}
+cell.char.wrong input {
+  color: var(--red);
+  background-color: var(--light-red);
+}
+wordlabel {
+  font-size: 1em;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding: 0.2em;
+  width: 100%;
+}
+wordlabel.hor {
+  flex-direction: column;
+  justify-content: space-between;
+}
+wordlabel::before, wordlabel::after {
+  color: #FFFFFF;
+}
+.question1::before, wordlabel.lab1::before {
+  content: "1";
+}
+.question2::before, wordlabel.lab2::before {
+  content: "2";
+}
+.question3::before, wordlabel.lab3::before {
+  content: "3";
+}
+.question4::before, wordlabel.lab4::before {
+  content: "4";
+}
+.question5::before, wordlabel.lab5::before {
+  content: "5";
+}
+.question6::before, wordlabel.lab6::before {
+  content: "6";
+}
+wordlabel.hor::after {
+  content: "→";
+}
+wordlabel.ver::after {
+  content: "↓";
+}
+game img {
+  width: 60%;
+  border: 1px solid var(--light-grey);
+  border-radius: 1.3em;
+  margin: 0 1em 1em 1em;
+}
+actions {
+  width: 100%;
+  order: 4;
+  justify-content: center;
+  display: flex;
+  margin: 1em;
+}
+actions check {
+  background: var(--orange);
+  color: #FFFFFF;
+  padding: 1.2em 2em;
+  font-size: 1.3em;
+  border-radius: 0.3em;
+  font-weight: 500;
+  cursor: pointer;
+}
+actions check.inactive {
+  background: var(--light-grey);
+}
+popup {
+  min-width: 20em;
+  min-height: 10em;
+  border: 1px solid var(--grey-incorrect);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border-radius: var(--radius);
+  box-shadow: 0 0 4px var(--dark-grey);
+  background: #FFFFFF;
+  transition: all .2s ease-in-out;
+  z-index: 2;
+  transform: scale(0.01) translateX(-50%);
+}
+popup.enlarged {
+  transform: scale(1.1) translateX(-50%);
+  transition: all .2s ease-in-out;
+}
+popup.loaded {
+  transform: scale(1) translateX(-50%);
+  transition: all .1s ease-in-out;
+}
+popupcontent {
+  margin: 2em 2em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+popupcontent p {
+  text-align: center;
+}
+closebutton {
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+}
+closebutton::before {
+  content: "\D7";
+  color: var(--grey-incorrect);
+  text-shadow: 0 0 1px var(--grey-incorrect);
+  font-size: 2em;
+  transition: all .2s ease-in-out;
+}
+closebutton:hover::before {
+  text-shadow: 0 0 5px var(--grey-incorrect);
+}
