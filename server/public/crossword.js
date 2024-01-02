@@ -41,7 +41,6 @@ const today = _ => (new Date()).toLocaleString('fr-CA', { timeZone: 'Europe/Riga
 // Creates patterns for all possible intersections of given three words
 const makeIntersections = (words, offset2, offset3, gaps) =>
 {
-
   const minOffset = (m = Math.min(offset2, offset3)) > 0 ? 0 : m
   const offsets = [0, offset2, offset3].map(x => x - minOffset)
 

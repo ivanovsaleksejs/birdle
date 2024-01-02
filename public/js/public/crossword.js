@@ -134,9 +134,11 @@ const checkGuesses = state => e =>
         { length: len },
         (_, o) => {
           let [xc, yc] = [x + (dir == 'hor' ? o : 0), y + (dir == 'ver' ? o : 0)]
-          return state.game.crosswordField[`crosswordrow${yc}`][`cell${yc}_${xc}`].input.node.value
+          return state.game.crosswordField[`crosswordrow${yc}`][`cell${yc}_${xc}`].input.node.value 
+            ? state.game.crosswordField[`crosswordrow${yc}`][`cell${yc}_${xc}`].input.node.value
+            : " "
         }
-      ).join("")
+      ).join("").trim()
       return word.length >= len ? word : ""
     }
   )
