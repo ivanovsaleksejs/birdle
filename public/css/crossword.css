@@ -86,6 +86,7 @@ crosswordrow cell {
   margin-top: -1px;
   background: transparent;
   border: 1px solid var(--dark-green);
+  padding: 0;
 }
 crosswordrow cell.char {
   background: #FFFFFF;
@@ -142,11 +143,13 @@ wordlabel {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
-  padding: 0.2em;
+  padding: 0 0.2em;
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 wordlabel.hor {
+  flex-direction: column;
   justify-content: space-between;
 }
 wordlabel::before, wordlabel::after {
