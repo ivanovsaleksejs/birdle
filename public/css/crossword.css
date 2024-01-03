@@ -146,7 +146,6 @@ wordlabel {
   height: 100%;
 }
 wordlabel.hor {
-  flex-direction: column;
   justify-content: space-between;
 }
 wordlabel::before, wordlabel::after {
