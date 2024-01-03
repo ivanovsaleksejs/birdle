@@ -80,6 +80,7 @@ crosswordrow {
 crosswordrow cell {
   display: flex;
   aspect-ratio: 1;
+  height: auto;
   border: 1px solid transparent;
   margin-left: -1px;
   margin-top: -1px;
