@@ -143,6 +143,7 @@ wordlabel {
   align-items: flex-end;
   padding: 0.2em;
   width: 100%;
+  overflow: visible;
 }
 wordlabel.hor {
   flex-direction: column;
