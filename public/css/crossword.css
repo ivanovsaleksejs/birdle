@@ -115,6 +115,8 @@ cell input {
   cursor: pointer;
   caret-color: transparent;
   text-transform: lowercase;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 cell input:disabled {
   cursor: not-allowed;
