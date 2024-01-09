@@ -9,6 +9,18 @@ const rnd = seed => (
   )
 )
 
+const shuffle = (l, rand) => {
+  for (let j = 0; j < 2; j++) {
+    for (let i = 0; i < l.length; i++) {
+      let r = rand() * l.length >>> 0
+      let tmp = l[i]
+      l[i] = l[r]
+      l[r] = tmp
+    }
+  }
+  return l
+}
+
 // Make a pattern with 3 defined characters and two wildcards of fixed lengths between them
 // Example: a.{1}b.{2}c
 const makePattern = (l, g) => (
@@ -187,7 +199,7 @@ const generateCrossword = async lang =>
 
   let rand = rnd((new Date(date).getTime()) / 86400000 >>> 0)
 
-  let candidates = birds.map(x => ({id: x.id, name: x.name.toLowerCase()})).sort(_ => rand() - 0.5)
+  let candidates = shuffle(birds.map(x => ({id: x.id, name: x.name.toLowerCase()})), rand)
 
   const [puzzles, gaps] = makePuzzles(candidates)
   const puzzle = puzzles[0]
