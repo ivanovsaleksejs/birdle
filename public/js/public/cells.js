@@ -28,7 +28,7 @@ const cellInput = state => e =>
   state.game.actions.check.node.classList.remove('inactive')
   let [x, y] = [+parent.dataset.x + (state.gamedata.dir == 'hor'), +parent.dataset.y + (state.gamedata.dir == 'ver')]
   let nextCell = (game.crosswordField[`crosswordrow${y}`] ?? {})[`cell${y}_${x}`]
-  if (nextCell && nextCell.node.classList.contains('char')) {
+  if (nextCell && nextCell.node.classList.contains('char') && e.data != "'") {
     nextCell.input.node.focus()
   }
   else {
