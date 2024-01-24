@@ -336,6 +336,10 @@ const checkCrossword = routes => (req, res) =>
 
 const readCrossword = async (cookies, session) =>
 {
+  if (typeof session.lang == 'undefined') {
+    session.lang = 'lv'
+    session.save()
+  }
   let lang = session.lang
   if (!session.gamestate) {
     session.gamestate = {}
